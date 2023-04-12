@@ -4,6 +4,7 @@ export interface SendEmailInterface {
 	content: Content[];
 	from: From;
 	reply_to: ReplyTo;
+	subject: string;
 }
 
 interface Personalization {

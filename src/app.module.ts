@@ -1,11 +1,11 @@
 /* eslint-disable prettier/prettier */
 import { Module } from "@nestjs/common";
+import { ConfigModule } from "@nestjs/config";
 import { SendGridModule } from "./app/sendGrid/sendGrid.module";
-import { SendGridService } from "./app/sendGrid/service/sendGrid.service";
 
 @Module({
-	imports: [SendGridModule],
+	imports: [ConfigModule.forRoot(), SendGridModule],
 	controllers: [],
-	providers: [SendGridService],
+	providers: [],
 })
 export class AppModule {}

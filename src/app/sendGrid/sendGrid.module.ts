@@ -2,9 +2,7 @@
 import { Module } from "@nestjs/common";
 import { HttpModule } from "@nestjs/axios";
 import { SendGridService } from "./service/sendGrid.service";
+import { SendGridController } from "./controller/send-grid.controller";
 
-@Module({})
-export class SendGridModule {
-	imports: [HttpModule];
-	providers: [SendGridService];
-}
+@Module({ imports: [HttpModule], providers: [SendGridService], controllers: [SendGridController] })
+export class SendGridModule {}

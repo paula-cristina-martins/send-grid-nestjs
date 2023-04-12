@@ -6,19 +6,22 @@ import { SendEmailInterface } from "../interface/send-email.interface";
 
 @Injectable()
 export class SendGridService {
+	private readonly SEND_GRID_API_URL = process.env.SEND_GRID_API_URL;
+	private readonly SEND_GRID_API_KEY = process.env.SEND_GRID_API_KEY;
+
 	constructor(private readonly httpService: HttpService) {}
 
 	async sendEmail(data: SendEmailInterface): Promise<boolean> {
-		const url = "https://api.sendgrid.com/v3/mail/send";
-		const config = {
-			headers: {
-				Authorization: "Bearer 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",
-			},
-		};
+		try {
+			const url = `${this.SEND_GRID_API_URL}mail/send`;
+			const config = {
+				headers: {
+					Authorization: `Bearer ${this.SEND_GRID_API_KEY}`,
+				},
+			};
 
-		const response = lastValueFrom(this.httpService.post(url, data, config));
-		console.log((await response).data);
-
-		return (await response).status === HttpStatus.ACCEPTED;
+			const response = await lastValueFrom(this.httpService.post(url, data, config));
+			return response.status === HttpStatus.ACCEPTED;
+		} catch (error) {}
 	}
 }
