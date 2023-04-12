@@ -1,10 +1,11 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+/* eslint-disable prettier/prettier */
+import { Module } from "@nestjs/common";
+import { SendGridModule } from "./app/sendGrid/sendGrid.module";
+import { SendGridService } from "./app/sendGrid/service/sendGrid.service";
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+	imports: [SendGridModule],
+	controllers: [],
+	providers: [SendGridService],
 })
 export class AppModule {}
