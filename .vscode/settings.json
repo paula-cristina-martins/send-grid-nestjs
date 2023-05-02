@@ -38,5 +38,18 @@
 		".env": "properties",
 		".importsortrc": "json"
 	},
-	"cSpell.words": ["Parens", "Wyzx", "Zdkg", "alqpHOCNR"]
+	"cSpell.words": [
+		"alqpHOCNR",
+		"colecao",
+		"datetime",
+		"mongodb",
+		"nestjs",
+		"Parens",
+		"postgres",
+		"pymongo",
+		"typeorm",
+		"Wyzx",
+		"xlsxwriter",
+		"Zdkg"
+	]
 }
